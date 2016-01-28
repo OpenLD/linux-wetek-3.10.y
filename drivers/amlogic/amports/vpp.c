@@ -1552,6 +1552,8 @@ void vpp_set_video_source_crop(u32 t, u32 l, u32 b, u32 r)
 	video_source_crop_bottom = b;
 	video_source_crop_right = r;
 }
+EXPORT_SYMBOL(vpp_set_video_source_crop);
+
 
 void vpp_get_video_source_crop(u32 *t, u32 *l, u32 *b, u32 *r)
 {
@@ -1560,6 +1562,7 @@ void vpp_get_video_source_crop(u32 *t, u32 *l, u32 *b, u32 *r)
 	*b = video_source_crop_bottom;
 	*r = video_source_crop_right;
 }
+EXPORT_SYMBOL(vpp_get_video_source_crop);
 
 void vpp_set_video_layer_position(s32 x, s32 y, s32 w, s32 h)
 {
@@ -1572,6 +1575,8 @@ void vpp_set_video_layer_position(s32 x, s32 y, s32 w, s32 h)
 	video_layer_width = w;
 	video_layer_height = h;
 }
+EXPORT_SYMBOL(vpp_set_video_layer_position);
+
 
 void vpp_get_video_layer_position(s32 *x, s32 *y, s32 *w, s32 *h)
 {
@@ -1580,18 +1585,23 @@ void vpp_get_video_layer_position(s32 *x, s32 *y, s32 *w, s32 *h)
 	*w = video_layer_width;
 	*h = video_layer_height;
 }
+EXPORT_SYMBOL(vpp_get_video_layer_position);
+
 
 void vpp_set_global_offset(s32 x, s32 y)
 {
 	video_layer_global_offset_x = x;
 	video_layer_global_offset_y = y;
 }
+EXPORT_SYMBOL(vpp_set_global_offset);
 
 void vpp_get_global_offset(s32 *x, s32 *y)
 {
 	*x = video_layer_global_offset_x;
 	*y = video_layer_global_offset_y;
 }
+EXPORT_SYMBOL(vpp_get_global_offset);
+
 
 s32 vpp_set_nonlinear_factor(u32 f)
 {

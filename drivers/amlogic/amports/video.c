@@ -463,6 +463,7 @@ static DEFINE_SPINLOCK(lock);
 static u32 frame_par_ready_to_set, frame_par_force_to_set;
 static u32 vpts_remainder;
 static bool video_property_changed = false;
+EXPORT_SYMBOL(video_property_changed);
 static u32 video_notify_flag = 0;
 static int enable_video_discontinue_report = 0;
 
@@ -521,6 +522,7 @@ u32 amvideo_get_scaler_para(int* x, int* y, int* w, int* h, u32* ratio)
     //*ratio = 100;
     return video_scaler_mode;
 }
+EXPORT_SYMBOL(amvideo_get_scaler_para);
 
 void amvideo_set_scaler_para(int x, int y, int w, int h,int flag)
 {
@@ -543,12 +545,14 @@ void amvideo_set_scaler_para(int x, int y, int w, int h,int flag)
     mutex_unlock(&video_module_mutex);
     return;
 }
+EXPORT_SYMBOL(amvideo_set_scaler_para);
 
 
 u32 amvideo_get_scaler_mode(void)
 {
     return video_scaler_mode;
 }
+EXPORT_SYMBOL(amvideo_get_scaler_mode);
 #endif
 
 /* display canvas */
