@@ -156,7 +156,9 @@ static int debug_pts_checkout = 0;
 static int debug_vpts = 0;
 static int debug_apts = 0;
 
-static int reset_flag = 0;
+static int wet_reset_flag = 0;
+EXPORT_SYMBOL(wet_reset_flag);
+
 #define M_HIGH_DIFF    2
 #define M_LOW_DIFF     2
 #define PLL_FACTOR   10000
@@ -1077,7 +1079,7 @@ int tsync_set_startsync_mode(int mode)
 EXPORT_SYMBOL(tsync_set_startsync_mode);
 int set_reset_flag(int enable)
 {
-    return reset_flag = enable;
+    return wet_reset_flag = enable;
 }
 EXPORT_SYMBOL(set_reset_flag);
 
@@ -1652,7 +1654,7 @@ static ssize_t show_reset_flag(struct class *class,
                            struct class_attribute *attr,
                            char *buf)
 {
-	return sprintf(buf, "%d\n", reset_flag);
+	return sprintf(buf, "%d\n", wet_reset_flag);
 }
 
 static ssize_t store_reset_flag(struct class *class,
@@ -1668,7 +1670,7 @@ static ssize_t store_reset_flag(struct class *class,
         return -EINVAL;
     }
 
-    reset_flag = enable;
+    wet_reset_flag = enable;
 
     return size;
 }
