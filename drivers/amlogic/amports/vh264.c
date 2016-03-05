@@ -1183,6 +1183,9 @@ static void vh264_isr(void)
                         h264pts1 = pts;
                         h264_pts_count = 2;
                     }
+					if (frame_dur == 0) {
+						frame_dur = 96000/30;
+					}
                     // checkout pts jump happen,reset calculate
                     if (h264_pts_count >0 && (abs(pts - last_checkout_pts) > DUR2PTS(frame_dur)*3)) {
                         printk("checkout pts jump,reset frame rate calculate:%d,%d\n",pts,last_checkout_pts);
